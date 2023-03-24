@@ -7,17 +7,17 @@ public class ExitGame : MonoBehaviour
 {
     private Button exitBtn;
     
-    public static void ExitGame()
+    public static void ExitApp()
     {
-
+        Application.Quit();
     }
 
     // Update is called once per frame
     void Update()
     {
-        exitBtn = GetCompoent<Button>();
-        //if(exitBtn != null)
-        //    exitBtn.onclick.()
+        exitBtn = GetComponent<Button>();
+        if(exitBtn != null)
+           exitBtn.onClick.AddListener(ExitApp);
 
     }
 }
