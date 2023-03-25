@@ -4,17 +4,16 @@ using UnityEngine;
 
 public class Test : MonoBehaviour
 {
-    public DialogController desk;
+    public bool[,] aTiles;
+    public bool[,] bTiles;
+    public AdjacentDirection direction;
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        if (desk == null)
-            return;
-
-        if(Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            desk.CallDialog(0);
+            //bool areAdjacentCellsWalkable = AreAdjacentCellsAllWalkable(aTiles, bTiles, direction);
+            //Debug.Log($"Are adjacent cells walkable? {areAdjacentCellsWalkable}");
         }
     }
 }
