@@ -5,8 +5,58 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.Events;
 
+public enum AdjacentDirection
+{
+    Right,
+    Left,
+    Up,
+    Down,
+    None,
+}
+
 public static class UtillHelper
 {
+    public static AdjacentDirection GetOppositeDirection(AdjacentDirection direction)
+    {
+        switch (direction)
+        {
+            case AdjacentDirection.Right:
+                return AdjacentDirection.Left;
+            case AdjacentDirection.Left:
+                return AdjacentDirection.Right;
+            case AdjacentDirection.Up:
+                return AdjacentDirection.Down;
+            case AdjacentDirection.Down:
+                return AdjacentDirection.Up;
+            default:
+                return AdjacentDirection.None;
+        }
+    }
+
+    public static AdjacentDirection GetAdjacentDirection(CellManager currentCellManager, CellManager adjacentCellManager)
+    {
+        int currentRow = currentCellManager.mapRow;
+        int currentCol = currentCellManager.mapCol;
+        int adjacentRow = adjacentCellManager.mapRow;
+        int adjacentCol = adjacentCellManager.mapCol;
+
+        int rowDiff = Mathf.Abs(currentRow - adjacentRow);
+        int colDiff = Mathf.Abs(currentCol - adjacentCol);
+
+        if (rowDiff == 1 && colDiff == 0)
+        {
+            if (adjacentRow > currentRow) return AdjacentDirection.Up;
+            else return AdjacentDirection.Down;
+        }
+        else if (rowDiff == 0 && colDiff == 1)
+        {
+            if (adjacentCol > currentCol) return AdjacentDirection.Right;
+            else return AdjacentDirection.Left;
+        }
+        else
+            return AdjacentDirection.None;
+    }
+
     public static IEnumerator ScaleLerp(Transform target, float startScale, float endScale, float lerpTime)
     {
         float elapsedTime = 0f;
