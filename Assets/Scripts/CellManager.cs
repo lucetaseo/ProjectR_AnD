@@ -10,7 +10,7 @@ public class CellManager : MonoBehaviour
     public int mapRow = -1;
     public int mapCol = -1;
 
-    Dictionary<AdjacentDirection, CellManager> neighbours;
+    Dictionary<AdjacentDirection, CellManager> neighbours = new Dictionary<AdjacentDirection, CellManager>();
 
     public void ChangeTile() {/*이동불가시 이동할수 있게 처리하는 코드를 추가할 예정입니다.*/}
 

@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class MapGenerator : MonoBehaviour
 {
-    [SerializeField] private GameObject[] cellPrefabs;
+    [SerializeField] private List<GameObject> cellPrefabs;
     [SerializeField] private int minCells = 1;
     [SerializeField] private int maxCells = 4;
     private int mapSize;
     List<CellManager> mapCells = new List<CellManager>();
 
-    private void GenerateMap()
+    public void GenerateMap()
     {
         int numCells = GetCellNumber();
+        print(numCells);
         mapSize = Mathf.CeilToInt(Mathf.Sqrt(numCells)) * 2;
         int[,] map = new int[mapSize, mapSize];
         int x = Random.Range(0, mapSize);
@@ -23,13 +24,26 @@ public class MapGenerator : MonoBehaviour
 
         while (cellCount < numCells)
         {
-            int randX = Random.Range(0, mapSize);
-            int randY = Random.Range(0, mapSize);
-            if (map[randX, randY] == 0 && IsAdjacent(map, randX, randY))
+            while(true)
             {
-                InstantiateCell(randX, randY);
-                map[randX, randY] = 1;
-                cellCount++;
+                int randX = Random.Range(0, mapSize);
+                int randY = Random.Range(0, mapSize);
+                if (map[randX, randY] == 0 && IsAdjacent(map, randX, randY))
+                {
+                    InstantiateCell(randX, randY);
+                    map[randX, randY] = 1;
+                    cellCount++;
+                    break;
+                }
+            }
+            
+        }
+
+        for (int row = 0; row < map.GetLength(0); row++)
+        {
+            for (int col = 0; col < map.GetLength(1); col++)
+            {
+                Debug.Log("map[" + row + ", " + col + "] = " + map[row, col]);
             }
         }
 
@@ -68,14 +82,15 @@ public class MapGenerator : MonoBehaviour
     private void InstantiateCell(int x, int y)
     {
         int cellIndex = GetCellIndex();
-        GameObject cellPrefab = cellPrefabs[cellIndex];
+        GameObject cellObject = cellPrefabs[cellIndex];
         Vector3 cellPos = GetCellPos(x, y);
-        GameObject cellObject = Instantiate(cellPrefab, cellPos, Quaternion.identity);
+        //GameObject cellObject = Instantiate(cellPrefab, cellPos, Quaternion.identity);
         cellObject.transform.SetParent(transform);
-
+        cellObject.transform.position = cellPos;
         CellManager cellManager = cellObject.GetComponent<CellManager>();
         cellManager.Init(x, y);
         mapCells.Add(cellManager);
+        cellPrefabs.Remove(cellObject);
     }
 
     private int GetCellNumber()
@@ -86,35 +101,57 @@ public class MapGenerator : MonoBehaviour
     // 재정의 필요
     private Vector3 GetCellPos(int x, int y)
     {
-        float posX = x;
+        float posX = x * 6;
         float posY = 0;
-        float posZ = y;
+        float posZ = y * 6;
         return new Vector3(posX, posY, posZ);
     }
 
     private int GetCellIndex()
     {
-        return Random.Range(0, cellPrefabs.Length);
+        return Random.Range(0, cellPrefabs.Count);
     }
 
     private bool IsAdjacent(int[,] map, int x, int y)
     {
-        for (int i = x - 1; i <= x + 1; i++)
+        int[] dx = { 0, 0, -1, 1 }; // x축 이동 방향
+        int[] dy = { -1, 1, 0, 0 }; // y축 이동 방향
+
+        for (int i = 0; i < dx.Length; i++)
         {
-            for (int j = y - 1; j <= y + 1; j++)
+            int nx = x + dx[i];
+            int ny = y + dy[i];
+
+            if (nx >= 0 && nx < map.GetLength(0) && ny >= 0 && ny < map.GetLength(1))
             {
-                if (i >= 0 && i < map.GetLength(0) && j >= 0 && j < map.GetLength(1))
+                if (map[nx, ny] != 0)
                 {
-                    if (map[i, j] != 0)
-                    {
-                        return true;
-                    }
+                    return true;
                 }
             }
         }
 
         return false;
     }
+
+    //private bool IsAdjacent(int[,] map, int x, int y)
+    //{
+    //    for (int i = x - 1; i <= x + 1; i++)
+    //    {
+    //        for (int j = y - 1; j <= y + 1; j++)
+    //        {
+    //            if (i >= 0 && i < map.GetLength(0) && j >= 0 && j < map.GetLength(1))
+    //            {
+    //                if (map[i, j] != 0)
+    //                {
+    //                    return true;
+    //                }
+    //            }
+    //        }
+    //    }
+
+    //    return false;
+    //}
 
 
     // 셀을 생성한 뒤 셀간 이동할수 있는지 확인하는 함수입니다. 이후 CellManager의 ChangeTile()에서 사용할 예정입니다.
