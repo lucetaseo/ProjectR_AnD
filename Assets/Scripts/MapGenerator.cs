@@ -39,15 +39,9 @@ public class MapGenerator : MonoBehaviour
             
         }
 
-        for (int row = 0; row < map.GetLength(0); row++)
-        {
-            for (int col = 0; col < map.GetLength(1); col++)
-            {
-                Debug.Log("map[" + row + ", " + col + "] = " + map[row, col]);
-            }
-        }
-
         InitMap();
+        PlayerController player = FindObjectOfType<PlayerController>();
+        player.ForcedSetPosition( mapCells[0].transform.position);
     }
 
     private void InitMap()
