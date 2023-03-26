@@ -28,8 +28,12 @@ public class PlayerController : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit, Mathf.Infinity, LayerMask.GetMask("Terrain")))
             {
-                agent.isStopped = false;
-                agent.SetDestination(hit.point);
+                NavMeshHit navHit;
+                if (NavMesh.SamplePosition(hit.point, out navHit, 1.0f, NavMesh.AllAreas))
+                {
+                    agent.isStopped = false;
+                    agent.SetDestination(navHit.position);
+                }
             }
         }
         else
