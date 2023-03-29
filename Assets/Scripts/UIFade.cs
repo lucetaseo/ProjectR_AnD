@@ -14,6 +14,33 @@ public class UIFade : Singleton<UIFade>
     private Color start;
     private Color end;
 
+    private Coroutine transparentRunningCourutine = null;
+
+    private IEnumerator ISetTransparent(float alpha, float lerpTime)
+    {
+        float elapsedTime = 0.0f;
+        float startAlpha = image.color.a;
+
+        while (elapsedTime < lerpTime)
+        {
+            float t = elapsedTime / lerpTime;
+            Color newColor = image.color;
+            newColor.a = Mathf.Lerp(startAlpha, alpha, t);
+            image.color = newColor;
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        Color finalColor = image.color;
+        finalColor.a = alpha;
+        image.color = finalColor;
+    }
+
+    public void SetTransparent(float alpha, float lerpTime)
+    {
+        transparentRunningCourutine = StartCoroutine(ISetTransparent(alpha, lerpTime));
+    }
+
     public void FadeIn(float speed)
     {
         image.gameObject.SetActive(true);
@@ -36,9 +63,16 @@ public class UIFade : Singleton<UIFade>
         elapsed = 0;
     }
 
+    private void InstanceFadeImage()
+    {
+
+    }
+
     void Start()
     {
         image = GetComponentInChildren<Image>(true);
+        if (image == null)
+            InstanceFadeImage();
         FadeIn(0.5f);
     }
 
