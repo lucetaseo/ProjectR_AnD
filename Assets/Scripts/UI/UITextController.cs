@@ -1,21 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class UITextController : MonoBehaviour
 {
     public string keyValue = "";
+    public TextMeshProUGUI targetText;
 
-
-    // Start is called before the first frame update
-    void Start()
+    public void SetLanguageText()
     {
-        
+        if (targetText == null)
+            return;
+
+        targetText.text = LanguageController.Instance.GetValue(keyValue);
+        // 폰트도 변경 필요
     }
 
-    // Update is called once per frame
-    void Update()
+
+    void Start()
     {
-        
+        if (targetText == null)
+            targetText = GetComponent<TextMeshProUGUI>();
+        SetLanguageText();
     }
 }

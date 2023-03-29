@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class SettingUI : MonoBehaviour
 {
+    [SerializeField]
+    private Transform settingMainDesc;
 
 
     // Start is called before the first frame update
