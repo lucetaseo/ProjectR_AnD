@@ -95,6 +95,10 @@ Material:
     - _GlossyReflections: 0
     - _Metallic: 0
     - _OcclusionStrength: 1
+<<<<<<< Updated upstream:Assets/Material/New Material.mat
+=======
+    - _OutLine_Thickness: 0
+>>>>>>> Stashed changes:Assets/Material/OutLine.mat
     - _Parallax: 0.005
     - _QueueOffset: 0
     - _ReceiveShadows: 1
