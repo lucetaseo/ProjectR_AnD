@@ -366,12 +366,7 @@ ModelImporter:
   - first:
       137: 13700000
     second: Creature_01_Mesh
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Creature_02
-    second: {fileID: 2100000, guid: 43111196cbbda5b4ea9ce78c44034cc5, type: 3}
+  externalObjects: {}
   materials:
     materialImportMode: 1
     materialName: 0

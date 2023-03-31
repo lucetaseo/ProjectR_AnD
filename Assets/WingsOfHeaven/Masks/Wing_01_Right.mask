@@ -1,0 +1,104 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1011 &101100000
+AvatarMask:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: Wing_01_Right
+  m_Mask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+  m_Elements:
+  - m_Path: 
+    m_Weight: 1
+  - m_Path: Mesh_L
+    m_Weight: 0
+  - m_Path: Mesh_R
+    m_Weight: 1
+  - m_Path: Rig_Wing_01
+    m_Weight: 1
+  - m_Path: Rig_Wing_01/Root
+    m_Weight: 1
+  - m_Path: Rig_Wing_01/Root/Position.L
+    m_Weight: 0
+  - m_Path: Rig_Wing_01/Root/Position.L/Shoulder.L
+    m_Weight: 0
+  - m_Path: Rig_Wing_01/Root/Position.L/Shoulder.L/UpprArm1.L
+    m_Weight: 0
+  - m_Path: Rig_Wing_01/Root/Position.L/Shoulder.L/UpprArm1.L/UpprArm2.L
+    m_Weight: 0
+  - m_Path: Rig_Wing_01/Root/Position.L/Shoulder.L/UpprArm1.L/UpprArm2.L/LwrArm1.L
+    m_Weight: 0
+  - m_Path: Rig_Wing_01/Root/Position.L/Shoulder.L/UpprArm1.L/UpprArm2.L/LwrArm1.L/LwrArm2.L
+    m_Weight: 0
+  - m_Path: Rig_Wing_01/Root/Position.L/Shoulder.L/UpprArm1.L/UpprArm2.L/LwrArm1.L/LwrArm2.L/Hand.L
+    m_Weight: 0
+  - m_Path: Rig_Wing_01/Root/Position.L/Shoulder.L/UpprArm1.L/UpprArm2.L/LwrArm1.L/LwrArm2.L/Hand.L/Alula.L
+    m_Weight: 0
+  - m_Path: Rig_Wing_01/Root/Position.L/Shoulder.L/UpprArm1.L/UpprArm2.L/LwrArm1.L/LwrArm2.L/Hand.L/PrimaryGroup1.L
+    m_Weight: 0
+  - m_Path: Rig_Wing_01/Root/Position.L/Shoulder.L/UpprArm1.L/UpprArm2.L/LwrArm1.L/LwrArm2.L/Hand.L/PrimaryGroup1.L/PrimaryGroup1_Tip1.L
+    m_Weight: 0
+  - m_Path: Rig_Wing_01/Root/Position.L/Shoulder.L/UpprArm1.L/UpprArm2.L/LwrArm1.L/LwrArm2.L/Hand.L/PrimaryGroup1.L/PrimaryGroup1_Tip2.L
+    m_Weight: 0
+  - m_Path: Rig_Wing_01/Root/Position.L/Shoulder.L/UpprArm1.L/UpprArm2.L/LwrArm1.L/LwrArm2.L/Hand.L/PrimaryGroup1.L/PrimaryGroup1_Tip3.L
+    m_Weight: 0
+  - m_Path: Rig_Wing_01/Root/Position.L/Shoulder.L/UpprArm1.L/UpprArm2.L/LwrArm1.L/LwrArm2.L/Hand.L/PrimaryGroup1.L/PrimaryGroup1_Tip4.L
+    m_Weight: 0
+  - m_Path: Rig_Wing_01/Root/Position.L/Shoulder.L/UpprArm1.L/UpprArm2.L/LwrArm1.L/LwrArm2.L/Hand.L/PrimaryGroup1.L/PrimaryGroup1_Tip5.L
+    m_Weight: 0
+  - m_Path: Rig_Wing_01/Root/Position.L/Shoulder.L/UpprArm1.L/UpprArm2.L/LwrArm1.L/LwrArm2.L/Hand.L/PrimaryGroup1.L/PrimaryGroup1_Tip6.L
+    m_Weight: 0
+  - m_Path: Rig_Wing_01/Root/Position.L/Shoulder.L/UpprArm1.L/UpprArm2.L/LwrArm1.L/LwrArm2.L/Hand.L/PrimaryGroup2.L
+    m_Weight: 0
+  - m_Path: Rig_Wing_01/Root/Position.L/Shoulder.L/UpprArm1.L/UpprArm2.L/LwrArm1.L/LwrArm2.L/SecondaryGroup1.L
+    m_Weight: 0
+  - m_Path: Rig_Wing_01/Root/Position.L/Shoulder.L/UpprArm1.L/UpprArm2.L/LwrArm1.L/SecondaryGroup2.L
+    m_Weight: 0
+  - m_Path: Rig_Wing_01/Root/Position.L/Shoulder.L/UpprArm1.L/UpprArm2.L/SecondaryGroup3.L
+    m_Weight: 0
+  - m_Path: Rig_Wing_01/Root/Position.L/Shoulder.L/UpprArm1.L/UpprArm2.L/TertiaryGroup.L
+    m_Weight: 0
+  - m_Path: Rig_Wing_01/Root/Position.L/Shoulder.L/UpprArm1.L/UpprArm2.L/TertiaryGroup.L/TertiaryGroup_Tip.L
+    m_Weight: 0
+  - m_Path: Rig_Wing_01/Root/Position.R
+    m_Weight: 0
+  - m_Path: Rig_Wing_01/Root/Position.R/Shoulder.R
+    m_Weight: 1
+  - m_Path: Rig_Wing_01/Root/Position.R/Shoulder.R/UpprArm1.R
+    m_Weight: 1
+  - m_Path: Rig_Wing_01/Root/Position.R/Shoulder.R/UpprArm1.R/UpprArm2.R
+    m_Weight: 1
+  - m_Path: Rig_Wing_01/Root/Position.R/Shoulder.R/UpprArm1.R/UpprArm2.R/LwrArm1.R
+    m_Weight: 1
+  - m_Path: Rig_Wing_01/Root/Position.R/Shoulder.R/UpprArm1.R/UpprArm2.R/LwrArm1.R/LwrArm2.R
+    m_Weight: 1
+  - m_Path: Rig_Wing_01/Root/Position.R/Shoulder.R/UpprArm1.R/UpprArm2.R/LwrArm1.R/LwrArm2.R/Hand.R
+    m_Weight: 1
+  - m_Path: Rig_Wing_01/Root/Position.R/Shoulder.R/UpprArm1.R/UpprArm2.R/LwrArm1.R/LwrArm2.R/Hand.R/Alula.R
+    m_Weight: 1
+  - m_Path: Rig_Wing_01/Root/Position.R/Shoulder.R/UpprArm1.R/UpprArm2.R/LwrArm1.R/LwrArm2.R/Hand.R/PrimaryGroup1.R
+    m_Weight: 1
+  - m_Path: Rig_Wing_01/Root/Position.R/Shoulder.R/UpprArm1.R/UpprArm2.R/LwrArm1.R/LwrArm2.R/Hand.R/PrimaryGroup1.R/PrimaryGroup1_Tip1.R
+    m_Weight: 1
+  - m_Path: Rig_Wing_01/Root/Position.R/Shoulder.R/UpprArm1.R/UpprArm2.R/LwrArm1.R/LwrArm2.R/Hand.R/PrimaryGroup1.R/PrimaryGroup1_Tip2.R
+    m_Weight: 1
+  - m_Path: Rig_Wing_01/Root/Position.R/Shoulder.R/UpprArm1.R/UpprArm2.R/LwrArm1.R/LwrArm2.R/Hand.R/PrimaryGroup1.R/PrimaryGroup1_Tip3.R
+    m_Weight: 1
+  - m_Path: Rig_Wing_01/Root/Position.R/Shoulder.R/UpprArm1.R/UpprArm2.R/LwrArm1.R/LwrArm2.R/Hand.R/PrimaryGroup1.R/PrimaryGroup1_Tip4.R
+    m_Weight: 1
+  - m_Path: Rig_Wing_01/Root/Position.R/Shoulder.R/UpprArm1.R/UpprArm2.R/LwrArm1.R/LwrArm2.R/Hand.R/PrimaryGroup1.R/PrimaryGroup1_Tip5.R
+    m_Weight: 1
+  - m_Path: Rig_Wing_01/Root/Position.R/Shoulder.R/UpprArm1.R/UpprArm2.R/LwrArm1.R/LwrArm2.R/Hand.R/PrimaryGroup1.R/PrimaryGroup1_Tip6.R
+    m_Weight: 1
+  - m_Path: Rig_Wing_01/Root/Position.R/Shoulder.R/UpprArm1.R/UpprArm2.R/LwrArm1.R/LwrArm2.R/Hand.R/PrimaryGroup2.R
+    m_Weight: 1
+  - m_Path: Rig_Wing_01/Root/Position.R/Shoulder.R/UpprArm1.R/UpprArm2.R/LwrArm1.R/LwrArm2.R/SecondaryGroup1.R
+    m_Weight: 1
+  - m_Path: Rig_Wing_01/Root/Position.R/Shoulder.R/UpprArm1.R/UpprArm2.R/LwrArm1.R/SecondaryGroup2.R
+    m_Weight: 1
+  - m_Path: Rig_Wing_01/Root/Position.R/Shoulder.R/UpprArm1.R/UpprArm2.R/SecondaryGroup3.R
+    m_Weight: 1
+  - m_Path: Rig_Wing_01/Root/Position.R/Shoulder.R/UpprArm1.R/UpprArm2.R/TertiaryGroup.R
+    m_Weight: 1
+  - m_Path: Rig_Wing_01/Root/Position.R/Shoulder.R/UpprArm1.R/UpprArm2.R/TertiaryGroup.R/TertiaryGroup_Tip.R
+    m_Weight: 1
