@@ -1,19 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Test : MonoBehaviour
 {
-    public bool[,] aTiles;
-    public bool[,] bTiles;
-    public AdjacentDirection direction;
+    public MapGenerator mapGenerator;
 
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            //bool areAdjacentCellsWalkable = AreAdjacentCellsAllWalkable(aTiles, bTiles, direction);
-            //Debug.Log($"Are adjacent cells walkable? {areAdjacentCellsWalkable}");
+            mapGenerator.GenerateMap();
+            NavMeshSurface nav = FindObjectOfType<NavMeshSurface>();
+            nav.BuildNavMesh();
         }
     }
 }
