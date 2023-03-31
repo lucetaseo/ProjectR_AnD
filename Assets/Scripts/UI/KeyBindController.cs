@@ -11,29 +11,17 @@ public class KeyBindController : MonoBehaviour
     // 4. 해당 키코드가 이미 사용중인지 확인, 만약 사용중이라면 교체
 
     [SerializeField]
-    private Dictionary<ControlKey, Transform> keyDisplays;
+    private Dictionary<ControlKey, KeyBinder> keyDisplays = new Dictionary<ControlKey, KeyBinder>();
+
+    private bool isUpdate = false;
+    private ControlKey curKey = ControlKey.None;
 
     private void SetKeyDisplay(ControlKey targetKey, KeyCode value)
     {
         // 함수 완성 필요
         if(keyDisplays.ContainsKey(targetKey))
         {
-            switch(value)
-            {
-                case KeyCode.Mouse0:
-                    break;
-                case KeyCode.Mouse1:
-                    break;
-                case KeyCode.Mouse2:
-                    break;
-                default:
-                    {
-                        string targetString = value.ToString();
-                        targetString = targetString.Replace("KeyCode.", "");
-                        
-                    }
-                    break;
-            }
+            keyDisplays[targetKey].ChangeKeyDisplay(value);
         }
     }
 
@@ -75,4 +63,43 @@ public class KeyBindController : MonoBehaviour
         return KeyCode.None;
     }
 
+    public void Init()
+    {
+        keyDisplays.Add(ControlKey.Move, UtillHelper.Find<KeyBinder>(transform, "MoveKey/KeyZone", true));
+        keyDisplays.Add(ControlKey.Aim, UtillHelper.Find<KeyBinder>(transform, "AimKey/KeyZone", true));
+        keyDisplays.Add(ControlKey.Basic, UtillHelper.Find<KeyBinder>(transform, "BasicAttack/KeyZone", true));
+        keyDisplays.Add(ControlKey.Skill1, UtillHelper.Find<KeyBinder>(transform, "Skill1/KeyZone", true));
+        keyDisplays.Add(ControlKey.Skill2, UtillHelper.Find<KeyBinder>(transform, "Skill2/KeyZone", true));
+        keyDisplays.Add(ControlKey.Special, UtillHelper.Find<KeyBinder>(transform, "Special/KeyZone", true));
+    }
+
+    public void UpdateKeyInput(ControlKey curKey)
+    {
+        isUpdate = true;
+        this.curKey = curKey;
+    }
+
+    private void UpdateCheck()
+    {
+        KeyCode inputKey = GetCurrentKeyDown();
+        if(inputKey != KeyCode.None)
+        {
+            ChangeKey(curKey, inputKey);
+            isUpdate = false;
+            this.curKey = ControlKey.None;
+        }
+    }
+
+    public void Start()
+    {
+        Init();
+    }
+
+    public void Update()
+    {
+        if (!isUpdate)
+            return;
+
+        UpdateCheck();
+    }
 }

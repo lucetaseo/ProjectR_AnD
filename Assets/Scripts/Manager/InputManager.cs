@@ -23,9 +23,12 @@ public class InputManager : Singleton<InputManager>
     public KeyCode player_Skill2Key = KeyCode.E;
     public KeyCode player_SpecialAttackKey = KeyCode.R;
 
-    private Dictionary<ControlKey, KeyCode> controlKeys;
+    private Dictionary<ControlKey, KeyCode> controlKeys = new Dictionary<ControlKey, KeyCode>();
 
-    private List<KeyCode> invalidKeys = new List<KeyCode>();
+    private List<KeyCode> invalidKeys = new List<KeyCode>()
+    {
+        KeyCode.Escape,
+    };
 
     public bool IsValidKey(KeyCode value)
     {
