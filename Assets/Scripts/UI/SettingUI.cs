@@ -7,6 +7,13 @@ public class SettingUI : MonoBehaviour
     [SerializeField]
     private Transform settingMainDesc;
 
+    private bool canOpenSetting;
+    private KeyCode openKey = KeyCode.Escape;
+
+    private void OpenSetting()
+    {
+
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -17,6 +24,7 @@ public class SettingUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (canOpenSetting && Input.GetKeyDown(openKey))
+            OpenSetting();
     }
 }

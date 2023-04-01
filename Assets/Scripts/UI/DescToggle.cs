@@ -7,24 +7,26 @@ public class DescToggle : MonoBehaviour
 {
     public Transform desc;
     [SerializeField]
-    private Button openDescBtn;
-    [SerializeField]
-    private Button closeDescBtn;
+    private Button descButton;
+
     private bool isOpened = false;
+    public bool isToggle = false;
+    public bool value = true;
 
     private void ToggleDesc()
     {
-        desc.gameObject.SetActive(!isOpened);
+        if (isToggle)
+            desc.gameObject.SetActive(!isOpened);
+        else
+            desc.gameObject.SetActive(value);
     }
 
     void Start()
     {
-        if (openDescBtn == null)
-            openDescBtn = GetComponent<Button>();
+        if (descButton == null)
+            descButton = GetComponent<Button>();
 
-        if(openDescBtn != null)
-            openDescBtn.onClick.AddListener(ToggleDesc);
-        if(closeDescBtn != null)
-            openDescBtn.onClick.AddListener(ToggleDesc);
+        if(descButton != null)
+            descButton.onClick.AddListener(ToggleDesc);
     }
 }

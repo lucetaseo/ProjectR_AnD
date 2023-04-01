@@ -21,6 +21,9 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        if (!agent.isOnNavMesh)
+            return;
+
         if (Input.GetKey(InputManager.Instance.player_MoveKey))
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -38,7 +41,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            if(agent.isStopped == false)
+            if(agent.isStopped)
             {
                 if (stopDelayElapsed > stopDelayTime)
                 {
