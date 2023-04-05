@@ -39,7 +39,7 @@ public class MapGenerator : MonoBehaviour
             
         }
 
-        InitMap();
+        //InitMap();
         PlayerController player = FindObjectOfType<PlayerController>();
         player.ForcedSetPosition(mapCells[0].transform.position);
     }
@@ -95,9 +95,9 @@ public class MapGenerator : MonoBehaviour
     // 재정의 필요
     private Vector3 GetCellPos(int x, int y)
     {
-        float posX = x * 6;
+        float posX = x * 36;
         float posY = 0;
-        float posZ = y * 6;
+        float posZ = y * 36;
         return new Vector3(posX, posY, posZ);
     }
 

@@ -76,6 +76,6 @@ public class CellManager : MonoBehaviour
     {
         this.mapRow = mapRow;
         this.mapCol = mapCol;
-        InitTileCells();
+        //InitTileCells();
     }
 }

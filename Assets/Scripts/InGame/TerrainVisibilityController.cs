@@ -7,7 +7,7 @@ public class TerrainVisibilityController : MonoBehaviour
     public Transform player;
     private Renderer currentRenderer = null;
     private Material originalMaterial = null;
-    public Material transparantMaterial;
+    //public Material transparantMaterial;
     public float transparentValue = 0.3f;
     public float materialChangeTime = 0.1f;
     private List<KeyValuePair<Renderer, Coroutine>> coroutines = new List<KeyValuePair<Renderer, Coroutine>>();
