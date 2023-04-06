@@ -14,7 +14,7 @@ public class PointAttack : SkillMain
 
         if(CollisionCheck(range, targetPoint))
         {
-            float finalDamage = attacker.DamageModify(baseDamage, AttackType attackType);
+            float finalDamage = attacker.DamageModify(baseDamage, attackType);
 
         }
 
